@@ -6,17 +6,18 @@ function App() {
 
   return (
     <>
-      <main className="flex flex-col justify-center items-center bg-gradient-to-r from-cyan-500 to-blue-500 h-screen w-full gap-4">
-        <h1 className=" font-medium text-5xl text-slate-100">Traductor APP</h1>
-        <div className="flex sm:flex-row flex-col items-center sm:items-start gap-2">
-          <section className="flex flex-col gap-6">
-            <ChangeLanguage />
-            <FormLanguage />  
+      <main className="flex flex-col justify-center items-center bg-gradient-to-r  from-slate-400 h-screen w-full gap-4">
+      
+        <h1 className=" font-medium text-4xl" >Traductor APP</h1>
+        <div className="flex sm:flex-row flex-col p-2 items-center sm:items-start gap-2 rounded-lg bg-white">
+          <section className="flex flex-col gap-1">
+            <ChangeLanguage type="from" />
+            <FormLanguage type="from" />  
           </section>
           <ArrowIcons />
-          <section className="flex flex-col gap-6">
-            <ChangeLanguage />
-            <FormLanguage />
+          <section className="flex flex-col">
+            <ChangeLanguage type="to" />
+            <FormLanguage type="to" />
           </section>
         </div>
 
