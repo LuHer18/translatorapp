@@ -1,7 +1,8 @@
+import { AUTOLENGUAGE } from "../constants";
 import { ActionTraslator, State } from "./type";
 
 export const initialState = {
-  fromLenguage: 'es',
+  fromLenguage: 'auto',
   toLenguage: 'en',
   text: '',
   result: '',
@@ -12,6 +13,10 @@ export const reducerTralator = (state: State, action: ActionTraslator) => {
   const { type } = action;
 
   if (type === 'INTERCHANGE') {
+    if( state.fromLenguage === AUTOLENGUAGE){
+      return state
+    }
+
     return {
       ...state,
       fromLenguage: state.toLenguage,
