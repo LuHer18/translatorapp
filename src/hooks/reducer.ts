@@ -20,7 +20,9 @@ export const reducerTralator = (state: State, action: ActionTraslator) => {
     return {
       ...state,
       fromLenguage: state.toLenguage,
-      toLenguage: state.fromLenguage
+      toLenguage: state.fromLenguage,
+      text: state.result,
+      result: ''
     }
   }
   if (type === 'SET_FROM_LENGUAGE') {
