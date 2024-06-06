@@ -9,7 +9,7 @@ type Props =
 
 export const ChangeLanguage = ({ type, value, onChange }: Props) => {
 
-  const colorType = (type === SectionType.From) ? 'text-gray-700' : 'text-teal-400'
+  const colorType = (type === SectionType.From) ? 'text-gray-700 dark:text-slate-50' : 'text-teal-400'
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     onChange(event.target.value as Lenguage)
@@ -17,10 +17,10 @@ export const ChangeLanguage = ({ type, value, onChange }: Props) => {
 
   return (
     <section className="flex justify-center">
-      <select className={`${colorType} border-2 p-2 w-40 border-slate-100 rounded-lg outline-none`} onChange={handleChange} value={value} name="select">
-        {(type === 'from') && <option className="text-slate-600" value={AUTOLENGUAGE}>Detectar idioma</option>}
+      <select className={`${colorType} border-2 p-2 w-40 dark:bg-zinc-800 dark:border-zinc-900  border-slate-100 rounded-lg outline-none`} onChange={handleChange} value={value} name="select">
+        {(type === 'from') && <option className="text-slate-600 dark:text-slate-50" value={AUTOLENGUAGE}>Detectar idioma</option>}
         {Object.entries(SUPPORTED_LANGUAGES).map(([key, value]) => (
-          <option className="text-slate-600" value={key} key={key}>{value}</option>
+          <option className="text-slate-600 dark:text-slate-50" value={key} key={key}>{value}</option>
         ))}
       </select>
     </section>
