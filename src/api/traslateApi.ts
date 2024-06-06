@@ -9,7 +9,6 @@ export const tralateApi = async (text: string, fromLenguage: string | null, toLe
     
     const url = import.meta.env.VITE_URL_API;
     const apiKey = import.meta.env.VITE_API_KEY
-    console.log(apiKey)
     
     try {
       const {data} = await axios.post(url, null, {

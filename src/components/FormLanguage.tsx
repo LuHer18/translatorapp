@@ -25,7 +25,7 @@ export const FormLanguage = ({ type, value, onChange, isLoading }: Props) => {
 
   return (
     <form >
-      <textarea className={`${colorType} w-60 h-36 resize-none outline-none placeholder-opacity-40 font-medium`} name="Language" value={value} onChange={handleChange} placeholder={getPlaceHolder({ type, isLoading })}></textarea>
+      <textarea disabled={type === SectionType.To} className={`${colorType} w-60 h-36 resize-none outline-none placeholder-opacity-40 font-medium`} name="Language" value={value} onChange={handleChange} placeholder={getPlaceHolder({ type, isLoading })}></textarea>
     </form>
   )
 }
