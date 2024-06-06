@@ -7,12 +7,14 @@ type DataAxio = {
 
 export const tralateApi = async (text: string, fromLenguage: string | null, toLenguage: string, setResut: (payload: string)=> void) => {
     
-    const url = 'https://api-free.deepl.com/v2/translate';
+    const url = import.meta.env.VITE_URL_API;
+    const apiKey = import.meta.env.VITE_API_KEY
+    console.log(apiKey)
     
     try {
       const {data} = await axios.post(url, null, {
         params: {
-          auth_key: '353cad76-7a59-41bd-87da-08485fded393:fx',
+          auth_key:apiKey,
           text: text,
           source_lang: fromLenguage,
           target_lang: toLenguage
