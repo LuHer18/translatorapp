@@ -6,6 +6,7 @@ import { AUTOLENGUAGE } from "./constants";
 import { tralateApi } from "./api/traslateApi";
 import { useEffect, useMemo } from "react";
 import { SectionType } from "./hooks/type.d";
+import { useDebounce } from "./hooks/useDebounce";
 
 function App() {
   const { fromLenguage, toLenguage, text, result, setFromLenguage, setToLenguage, setText, setResut, interchangeLenguage, isLoading } = useTraslator();
@@ -14,10 +15,11 @@ function App() {
     if (fromLenguage === AUTOLENGUAGE) return null;
     return fromLenguage;
   }, [fromLenguage])
-
+ 
+  const debouncedFromText = useDebounce(text, 200)
   useEffect(() => {
-    tralateApi(text, newFromLenguaje, toLenguage, setResut)
-  }, [text, newFromLenguaje, toLenguage])
+    tralateApi(debouncedFromText, newFromLenguaje, toLenguage, setResut)
+  }, [debouncedFromText, newFromLenguaje, toLenguage])
 
   return (
     <>
