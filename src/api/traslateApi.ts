@@ -20,7 +20,6 @@ export const tralateApi = async (text: string, fromLenguage: FromLenguage | null
           target_lang: toLenguage
         }
       });
-      console.log(data.translations[0].text)
       setResut(data.translations[0].text);
       
     } catch (error) {

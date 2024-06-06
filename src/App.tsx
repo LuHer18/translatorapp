@@ -8,6 +8,7 @@ import { useEffect, useMemo } from "react";
 import { SectionType } from "./hooks/type.d";
 import { useDebounce } from "./hooks/useDebounce";
 import { CopyIcons } from "./assets/CopyIcons";
+import { motion } from "framer-motion"
 
 function App() {
   const { fromLenguage, toLenguage, text, result, setFromLenguage, setToLenguage, setText, setResut, interchangeLenguage, isLoading } = useTraslator();
@@ -23,7 +24,7 @@ function App() {
   }, [debouncedFromText, newFromLenguaje, toLenguage])
 
   const handleClipboard = () => {
-    navigator.clipboard.writeText(result).catch(()=> {})
+    navigator.clipboard.writeText(result).catch(() => { })
   }
 
   return (
@@ -42,7 +43,19 @@ function App() {
             <FormLanguage type={SectionType.To} onChange={setResut} value={result} isLoading={isLoading} />
             {
               (result !== '') &&
-              <button className=" absolute bottom-3 left-1 text-gray-700 hover:text-teal-400 hover:scale-125 " onClick={handleClipboard}><CopyIcons /></button>
+              <button className=" absolute bottom-3 left-1 text-gray-700 hover:text-teal-400 hover:scale-125 " onClick={handleClipboard}
+              >
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: 0.2,
+                    ease: [0, 0.71, 0.2, 1.01]
+                  }}
+                >
+                  <CopyIcons />
+                </motion.div> </button>
             }
 
           </section>
