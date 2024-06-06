@@ -8,7 +8,7 @@ import { useEffect, useMemo } from "react";
 import { SectionType } from "./hooks/type.d";
 
 function App() {
-  const { fromLenguage, toLenguage, text, result, setFromLenguage, setToLenguage, setText, setResut, interchangeLenguage } = useTraslator();
+  const { fromLenguage, toLenguage, text, result, setFromLenguage, setToLenguage, setText, setResut, interchangeLenguage, isLoading } = useTraslator();
 
   const newFromLenguaje = useMemo(() => {
     if (fromLenguage === AUTOLENGUAGE) return null;
@@ -27,12 +27,12 @@ function App() {
         <div className="flex sm:flex-row flex-col p-2 items-center sm:items-start gap-2 rounded-lg bg-white">
           <section className="flex flex-col gap-1">
             <ChangeLanguage type={SectionType.From} onChange={setFromLenguage} value={fromLenguage} />
-            <FormLanguage type="from" onChange={setText} value={text} />
+            <FormLanguage type={SectionType.From} onChange={setText} value={text} />
           </section>
           <button disabled={fromLenguage === AUTOLENGUAGE} onClick={interchangeLenguage}><ArrowIcons /></button>
           <section className="flex flex-col">
             <ChangeLanguage type={SectionType.To} onChange={setToLenguage} value={toLenguage} />
-            <FormLanguage type="to" onChange={setResut} value={result} />
+            <FormLanguage type={SectionType.To} onChange={setResut} value={result} isLoading={isLoading} />
           </section>
         </div>
 
