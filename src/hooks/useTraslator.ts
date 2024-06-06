@@ -1,5 +1,6 @@
 import { useReducer } from "react"
 import { initialState, reducerTralator } from "./reducer"
+import { FromLenguage, Lenguage } from "./type"
 
 
 export const useTraslator = () => {
@@ -8,10 +9,10 @@ export const useTraslator = () => {
     const interchangeLenguage = () => {
         dispatch({type:'INTERCHANGE'})
     }
-    const setFromLenguage = (payload: string) => {
+    const setFromLenguage = (payload: FromLenguage) => {
         dispatch({type:'SET_FROM_LENGUAGE', payload})
     }
-    const setToLenguage = (payload: string) => {
+    const setToLenguage = (payload: Lenguage) => {
         dispatch({type:'SET_TO_LENGUAGE', payload})
     }
 

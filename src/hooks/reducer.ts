@@ -1,8 +1,8 @@
 import { AUTOLENGUAGE } from "../constants";
 import { ActionTraslator, State } from "./type";
 
-export const initialState = {
-  fromLenguage: 'es',
+export const initialState: State = {
+  fromLenguage: 'auto',
   toLenguage: 'en',
   text: '',
   result: '',
