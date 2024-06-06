@@ -7,6 +7,7 @@ import { tralateApi } from "./api/traslateApi";
 import { useEffect, useMemo } from "react";
 import { SectionType } from "./hooks/type.d";
 import { useDebounce } from "./hooks/useDebounce";
+import { CopyIcons } from "./assets/CopyIcons";
 
 function App() {
   const { fromLenguage, toLenguage, text, result, setFromLenguage, setToLenguage, setText, setResut, interchangeLenguage, isLoading } = useTraslator();
@@ -15,11 +16,15 @@ function App() {
     if (fromLenguage === AUTOLENGUAGE) return null;
     return fromLenguage;
   }, [fromLenguage])
- 
+
   const debouncedFromText = useDebounce(text, 200)
   useEffect(() => {
     tralateApi(debouncedFromText, newFromLenguaje, toLenguage, setResut)
   }, [debouncedFromText, newFromLenguaje, toLenguage])
+
+  const handleClipboard = () => {
+    navigator.clipboard.writeText(result).catch(()=> {})
+  }
 
   return (
     <>
@@ -32,9 +37,14 @@ function App() {
             <FormLanguage type={SectionType.From} onChange={setText} value={text} />
           </section>
           <button className="rounded-full  flex justify-center  items-center disabled:scale-100 bg-slate-100 disabled:text-slate-400 text-gray-700 hover:text-teal-400 hover:scale-125  p-2" disabled={fromLenguage === AUTOLENGUAGE} onClick={interchangeLenguage}><ArrowIcons /></button>
-          <section className="flex flex-col gap-1">
+          <section className="flex flex-col gap-1 relative">
             <ChangeLanguage type={SectionType.To} onChange={setToLenguage} value={toLenguage} />
             <FormLanguage type={SectionType.To} onChange={setResut} value={result} isLoading={isLoading} />
+            {
+              (result !== '') &&
+              <button className=" absolute bottom-3 left-1 text-gray-700 hover:text-teal-400 hover:scale-125 " onClick={handleClipboard}><CopyIcons /></button>
+            }
+
           </section>
         </div>
 
