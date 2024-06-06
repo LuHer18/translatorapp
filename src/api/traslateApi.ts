@@ -1,22 +1,26 @@
 import axios from "axios";
 
-export const tralateApi = async (text:string, fromLenguage: string, toLenguage: string) => {
+type DataAxio = {
+  detected_source_language: string;
+  text: string;
+}
+
+export const tralateApi = async (text: string, fromLenguage: string | null, toLenguage: string, setResut: (payload: string)=> void) => {
     
-    const url = import.meta.env.VITE_URL_API;
+    const url = 'https://api-free.deepl.com/v2/translate';
     
     try {
-      const response = await axios.post(url, null, {
+      const {data} = await axios.post(url, null, {
         params: {
-          auth_key: import.meta.env.VITE_API_KEY,
+          auth_key: '353cad76-7a59-41bd-87da-08485fded393:fx',
           text: text,
           source_lang: fromLenguage,
           target_lang: toLenguage
         }
       });
+      console.log(data.translations[0].text)
+      setResut(data.translations[0].text);
       
-      const data = response.data.translations[0].text;
-      return data
-      console.log(response.data)
     } catch (error) {
       console.error('Error al traducir el texto:', error);
     }

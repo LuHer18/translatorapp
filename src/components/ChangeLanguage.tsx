@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react"
 import { AUTOLENGUAGE, SUPPORTED_LANGUAGES } from "../constants"
-import { fromLenguage, Lenguage } from "../hooks/type"
+
 
 interface Props {
   type: string,

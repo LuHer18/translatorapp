@@ -2,7 +2,7 @@ import { AUTOLENGUAGE } from "../constants";
 import { ActionTraslator, State } from "./type";
 
 export const initialState = {
-  fromLenguage: 'auto',
+  fromLenguage: 'es',
   toLenguage: 'en',
   text: '',
   result: '',
