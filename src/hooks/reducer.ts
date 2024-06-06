@@ -24,15 +24,22 @@ export const reducerTralator = (state: State, action: ActionTraslator) => {
     }
   }
   if (type === 'SET_FROM_LENGUAGE') {
+    if(state.fromLenguage === action.payload) return state
+    const loading = state.text !== ''
     return {
       ...state,
-      fromLenguage: action.payload
+      fromLenguage: action.payload,
+      isLoading: loading
     }
   }
   if (type === 'SET_TO_LENGUAGE') {
+    if(state.toLenguage === action.payload) return state
+    const loading = state.text !== ''
+
     return {
       ...state,
-      toLenguage: action.payload
+      toLenguage: action.payload,
+      isLoading: loading
     }
   }
   if (type === 'SET_TEXT') {

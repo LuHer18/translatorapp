@@ -1,11 +1,12 @@
 import axios from "axios";
+import { FromLenguage, Lenguage } from "../hooks/type";
 
 type DataAxio = {
   detected_source_language: string;
   text: string;
 }
 
-export const tralateApi = async (text: string, fromLenguage: string | null, toLenguage: string, setResut: (payload: string)=> void) => {
+export const tralateApi = async (text: string, fromLenguage: FromLenguage | null, toLenguage: Lenguage, setResut: (payload: string)=> void) => {
     
     const url = import.meta.env.VITE_URL_API;
     const apiKey = import.meta.env.VITE_API_KEY

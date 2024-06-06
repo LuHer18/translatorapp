@@ -21,16 +21,16 @@ function App() {
 
   return (
     <>
-      <main className="flex flex-col justify-center items-center bg-gradient-to-r  from-slate-400 h-screen w-full gap-4">
+      <main className="flex flex-col justify-center items-center bg-slate-100 h-screen w-full gap-4">
 
-        <h1 className=" font-medium text-4xl" >Traductor APP</h1>
-        <div className="flex sm:flex-row flex-col p-2 items-center sm:items-start gap-2 rounded-lg bg-white">
+        <h1 className=" font-medium text-3xl" >Traslate</h1>
+        <div className="flex sm:flex-row flex-col p-2 items-center sm:items-start gap-1 rounded-lg bg-white">
           <section className="flex flex-col gap-1">
             <ChangeLanguage type={SectionType.From} onChange={setFromLenguage} value={fromLenguage} />
             <FormLanguage type={SectionType.From} onChange={setText} value={text} />
           </section>
-          <button disabled={fromLenguage === AUTOLENGUAGE} onClick={interchangeLenguage}><ArrowIcons /></button>
-          <section className="flex flex-col">
+          <button className="rounded-full  flex justify-center  items-center disabled:scale-100 bg-slate-100 disabled:text-slate-400 text-gray-700 hover:text-teal-400 hover:scale-125  p-2" disabled={fromLenguage === AUTOLENGUAGE} onClick={interchangeLenguage}><ArrowIcons /></button>
+          <section className="flex flex-col gap-1">
             <ChangeLanguage type={SectionType.To} onChange={setToLenguage} value={toLenguage} />
             <FormLanguage type={SectionType.To} onChange={setResut} value={result} isLoading={isLoading} />
           </section>
