@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 
 export const DarkMode = () => {
     const [theme, setTheme] = useState(() => {
-        let storedPreference = localStorage.getItem('theme');
+        const storedPreference = localStorage.getItem('theme');
         if (storedPreference) {
             return storedPreference === 'dark';
         }

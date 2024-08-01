@@ -4,7 +4,7 @@ import { FormLanguage } from "./components/FormLanguage"
 import { useTraslator } from "./hooks/useTraslator"
 import { AUTOLENGUAGE } from "./constants";
 import { tralateApi } from "./api/traslateApi";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { SectionType } from "./hooks/type.d";
 import { useDebounce } from "./hooks/useDebounce";
 import { CopyIcons } from "./assets/CopyIcons";
@@ -23,7 +23,7 @@ function App() {
   
   useEffect(() => {
     tralateApi(debouncedFromText, newFromLenguaje, toLenguage, setResut)
-  }, [debouncedFromText, newFromLenguaje, toLenguage])
+  }, [debouncedFromText, newFromLenguaje, toLenguage, setResut])
 
   const handleClipboard = () => {
     navigator.clipboard.writeText(result).catch(() => { })
@@ -33,7 +33,7 @@ function App() {
     <>
       <main className="flex flex-col justify-center items-center dark:bg-zinc-900 bg-slate-100 h-screen w-full gap-2">
         <nav className="flex items-center justify-between w-[256px]  sm:w-[470px]">
-          <h1 className=" font-medium text-3xl dark:text-slate-50" >Traslate</h1>
+          <h1 className=" font-medium text-3xl dark:text-slate-50" >Translate</h1>
           <DarkMode />
         </nav>
         
