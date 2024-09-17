@@ -1,30 +1,43 @@
-# React + TypeScript + Vite
+# 💡 Translator
+<p>API para la traducción del texto <a href='https://www.deepl.com/en/pro-api'>DeepL Translate API</a></p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Captura de pantalla de web de traducción
 
-Currently, two official plugins are available:
+![translatorDesktop](https://github.com/user-attachments/assets/ba602f5b-dfe9-4627-92d9-275540f198aa)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Captua de pantalla Mobile
+![translatorMobile](https://github.com/user-attachments/assets/0965e983-7c6a-441e-bf95-99ff6e38781c)
 
-## Expanding the ESLint configuration
+## 💥 Caracteristicas principales
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+* Traducción en tiempo real del texto escrito a un idioma seleccionado. 
+* Detectar automáticamente el idioma en el que se escribe el mensaje.
+* Uso de un debounce para disminuir la cantidad de llamadas a la API. 
 
-- Configure the top-level `parserOptions` property like this:
+## 🚀 Instalación
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+1. Clona el repositorio
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+https://github.com/LuHer18/translatorapp.git
+```
+2. Instala los paquetes de NPM
+```
+npm install
+```
+3. Renombrar el archivo env.template por .env.
+   
+5. Hacer los cambios respectivos en las variables de entorno.
+```
+VITE_API_KEY=
+VITE_URL_API=
+```
+7. Ejecuta el proyecto
+```
+npm run dev
+```
+## 🛠 Stacks
+* <p><a href='https://vitejs.dev/guide/static-deploy.html'>Vite</a> - Herramienta de compilación para proyectos web modernos.</p>
+* <p><a href='https://tailwindcss.com/'>Tailwind CSS</a> - Framework CSS que nos proporciona clases de utilidad.</p>
+* <p> <a href = 'https://www.typescriptlang.org/' >TypeScript</a> - Lenguaje de programación libre y de código abierto desarrollado y mantenido por Microsoft.</p>
+## 🔑 Licencia
+<p><a href='https://github.com/LuHer18/translatorapp/blob/main/LICENSE'>MIT</a> - Creado por <a href='https://github.com/LuHer18'>Luis Herrera</a></p>
